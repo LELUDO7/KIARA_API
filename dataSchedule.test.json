@@ -1,0 +1,404 @@
+[
+    {
+        "_id": {
+            "$oid": "5fc125a21633312494c41fee"
+        },
+        "weekDay": [
+            [
+                {
+                    "name": "Maths",
+                    "local": "K212",
+                    "nbBloc": 1,
+                    "display": true,
+                    "color": "red"
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": false,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "Francais",
+                    "local": "B100",
+                    "nbBloc": 3,
+                    "display": true,
+                    "color": "blue"
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": false,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": false,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": false,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                }
+            ],
+            [
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                }
+            ],
+            [
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                }
+            ],
+            [
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                }
+            ],
+            [
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                },
+                {
+                    "name": "",
+                    "local": "",
+                    "nbBloc": 0,
+                    "display": true,
+                    "color":""
+                }
+            ]
+        ]
+    }
+]
