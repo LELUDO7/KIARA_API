@@ -7,7 +7,7 @@ const router = express.Router();
 class UserRoute {
 
     constructor() {
-        router.put('/:idUser', this.updateUser)
+        router.patch('/:idUser', this.updateUser)
         router.head('/:idUser', this.checkIfUserExist)
         router.get('/:idUser', this.getById)
         router.post('/', this.creatUser)
@@ -15,8 +15,13 @@ class UserRoute {
     
     async updateUser(req, res, next) {
         try {
-            UserRepository.put(req.params.idUser, req.body);
-                res.status(200).json(); 
+            let result = await UserRepository.updateUserById(req.params.idUser, req.body);
+            if (result === null) {
+                return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
+            }
+            else {
+                res.status(200).json();
+            }
         } catch (err) {
             return next(err)
         }
@@ -27,7 +32,7 @@ class UserRoute {
             let result = await UserRepository.getByUserId(req.params.idUser);
 
             if (Object.keys(result).length === 0) {
-                return next(HttpError.NotFound(`User ${req.params.idCustomer} dosen't exist`));
+                return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
                 res.status(200).json(); 

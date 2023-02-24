@@ -3,15 +3,16 @@ import User from '../models/user.model.js';
 
 class UserRepository {
 
-    updateUser(body, idUser) {
+    updateUserById(idUser, body) {
         const query = {"idUser":idUser};
-        User.updateOne(query, body)
+        const result = User.findOneAndUpdate(query, body);
+        return result
     }
 
     getByUserId(idUser) {
         const query = {"idUser":idUser};
-        const retrieveQuery = User.findOne(query)
-        return retrieveQuery
+        const retrieveQuery = User.findOne(query);
+        return retrieveQuery;
         
     }
 
