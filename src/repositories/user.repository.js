@@ -16,6 +16,21 @@ class UserRepository {
         
     }
 
+    getAllUser() {
+        const retrieveQuery = User.find();
+        return retrieveQuery;
+    }
+
+    transformByNoSchedule(user) {
+        delete user.schedule;
+        delete user._id;
+        delete user.friends
+        delete user.createdAt;
+        delete user.updatedAt;
+        delete user.__v;
+        return user
+    }
+
     transform(user) {
         delete user._id;
         delete user.friends

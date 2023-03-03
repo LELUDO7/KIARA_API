@@ -1,5 +1,6 @@
 import express from 'express';
 import HttpError from 'http-errors';
+import userRepository from '../repositories/user.repository.js';
 import UserRepository from '../repositories/user.repository.js';
 
 const router = express.Router();
@@ -10,9 +11,31 @@ class UserRoute {
         router.patch('/:idUser', this.updateUser)
         router.head('/:idUser', this.checkIfUserExist)
         router.get('/:idUser', this.getById)
+        router.get('/', this.getAllUserInfo)
         router.post('/', this.creatUser)
     }
-    
+
+    async getAllUserInfo(_, res, next) {
+        try {
+            var result = await UserRepository.getAllUser();
+
+            if (result === null) {
+                return next(HttpError.NotFound(`No user found`));
+            }
+
+            var i = 0
+            result.forEach(user => {
+                result[i] = user.toObject({ getters: false, virtuals: false });
+                result[i] = userRepository.transformByNoSchedule(result[i]);
+                i++
+            });
+            res.status(200).json(result);
+
+        } catch (err) {
+            return next(err)
+        }
+    }
+
     async updateUser(req, res, next) {
         try {
             let result = await UserRepository.updateUserById(req.params.idUser, req.body);
@@ -35,22 +58,22 @@ class UserRoute {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
-                res.status(200).json(); 
+                res.status(200).json();
             }
-            
+
         } catch (err) {
             return next(err)
         }
     }
 
     async creatUser(req, res, next) {
-        
+
         try {
             if (Object.keys(req.body).length === 0) {
                 return next(HttpError.BadRequest('User can not be empty'));
             }
             await UserRepository.create(req.body);
-            
+
             res.status(200).json();
         } catch (err) {
             return next(err);
