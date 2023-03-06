@@ -1,23 +1,25 @@
 
+import { query } from 'express';
 import User from '../models/user.model.js';
 
 class UserRepository {
 
     updateUserById(idUser, body) {
-        const query = {"idUser":idUser};
+        const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, body);
         return result
     }
 
     getByUserId(idUser) {
-        const query = {"idUser":idUser};
+        const query = { "idUser": idUser };
         const retrieveQuery = User.findOne(query);
         return retrieveQuery;
-        
+
     }
 
-    getAllUser() {
-        const retrieveQuery = User.find();
+    getAllUser(query) {
+        const queryRegex = new RegExp(query);
+        const retrieveQuery = User.find({ 'firstName': { $regex: queryRegex} });
         return retrieveQuery;
     }
 
@@ -39,8 +41,8 @@ class UserRepository {
         delete user.__v;
         return user
     }
-    
-    retrieveById(idUser){
+
+    retrieveById(idUser) {
         const User = User.findById(idUser);
         return User;
     }

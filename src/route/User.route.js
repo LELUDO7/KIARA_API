@@ -11,13 +11,13 @@ class UserRoute {
         router.patch('/:idUser', this.updateUser)
         router.head('/:idUser', this.checkIfUserExist)
         router.get('/:idUser', this.getById)
-        router.get('/', this.getAllUserInfo)
+        router.get('/query', this.getAllUserInfo)
         router.post('/', this.creatUser)
     }
 
-    async getAllUserInfo(_, res, next) {
+    async getAllUserInfo(req, res, next) {
         try {
-            var result = await UserRepository.getAllUser();
+            var result = await UserRepository.getAllUser(req.params.query);
 
             if (result === null) {
                 return next(HttpError.NotFound(`No user found`));
