@@ -19,7 +19,7 @@ class UserRepository {
 
     getAllUser(query) {
         const queryRegex = new RegExp(query);
-        const retrieveQuery = User.find({ 'firstName': { $regex: queryRegex} });
+        const retrieveQuery = User.find({ firstName: { $regex: query} });
         return retrieveQuery;
     }
 
