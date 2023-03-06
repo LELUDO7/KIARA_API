@@ -11,29 +11,7 @@ class UserRoute {
         router.patch('/:idUser', this.updateUser)
         router.head('/:idUser', this.checkIfUserExist)
         router.get('/:idUser', this.getById)
-        router.get('/query', this.getAllUserInfo)
         router.post('/', this.creatUser)
-    }
-
-    async getAllUserInfo(req, res, next) {
-        try {
-            var result = await UserRepository.getAllUser(req.params.query);
-
-            if (result === null) {
-                return next(HttpError.NotFound(`No user found`));
-            }
-
-            var i = 0
-            result.forEach(user => {
-                result[i] = user.toObject({ getters: false, virtuals: false });
-                result[i] = userRepository.transformByNoSchedule(result[i]);
-                i++
-            });
-            res.status(200).json(result);
-
-        } catch (err) {
-            return next(err)
-        }
     }
 
     async updateUser(req, res, next) {
