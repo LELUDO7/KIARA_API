@@ -18,7 +18,9 @@ const userSchema = mongoose.Schema({
     firstName: { type: String, require: true },
     lastName: { type: String, require: true },
     schedule: [[bloc]],
-    friends: [friend]
+    friends: [friend],
+    pendingReciveFriend: [String],
+    pendingSendFriend: [String]
 }, {
 
     collection: "user",
