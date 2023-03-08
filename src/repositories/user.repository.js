@@ -4,10 +4,16 @@ import User from '../models/user.model.js';
 
 class UserRepository {
 
+    addReceiveFriendRequest(idUser, body) {
+        const query = { "idUser": idUser };
+        const result = User.findOneAndUpdate(query, { $addToSet: body });
+        return result;
+    }
+
     updateUserById(idUser, body) {
         const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, body);
-        return result
+        return result;
     }
 
     getByUserId(idUser) {

@@ -52,7 +52,7 @@ class UserRoute {
             }
             await UserRepository.create(req.body);
 
-            res.status(200).json();
+            res.status(201).json();
         } catch (err) {
             return next(err);
         }
