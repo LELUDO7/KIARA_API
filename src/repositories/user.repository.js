@@ -33,6 +33,8 @@ class UserRepository {
         delete user.schedule;
         delete user._id;
         delete user.friends
+        delete user.pendingReciveFriend
+        delete user.pendingSendFriend
         delete user.createdAt;
         delete user.updatedAt;
         delete user.__v;
