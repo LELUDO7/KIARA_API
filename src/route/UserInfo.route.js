@@ -12,6 +12,7 @@ class UserInfoRoute {
     }
 
     async getAllUserInfo(req, res, next) {
+     
         try {
             var result = await UserRepository.getAllUser(req.params.srch);
 

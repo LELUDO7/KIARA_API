@@ -41,7 +41,6 @@ class UserRepository {
 
     transform(user) {
         delete user._id;
-        delete user.friends
         delete user.createdAt;
         delete user.updatedAt;
         delete user.__v;

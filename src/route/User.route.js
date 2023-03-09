@@ -59,6 +59,11 @@ class UserRoute {
     }
 
     async getById(req, res, next) {
+        var schedule = false
+        if (req.query.schedule === 'yes') {
+            schedule = true
+        }
+        
 
         try {
             var user = await UserRepository.getByUserId(req.params.idUser);
@@ -67,7 +72,12 @@ class UserRoute {
                 return next(HttpError.NotFound(`Schedule whit id ${req.params.idUser} dosent exist.`));
             }
             user = user.toObject({ getters: false, virtuals: false });
-            user = UserRepository.transform(user);
+            if (schedule) {
+                user = UserRepository.transform(user);
+            } else {
+                user = UserRepository.transformByNoSchedule(user);
+            }
+            
 
             res.status(200).json(user);
         }
