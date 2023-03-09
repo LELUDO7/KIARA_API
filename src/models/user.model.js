@@ -1,9 +1,5 @@
 import mongoose from "mongoose";
 
-const friend = mongoose.Schema({
-    id: { type: String, required: true },
-});
-
 const bloc = mongoose.Schema({
     name: { type: String, required: true },
     local: { type: String, require: true },
@@ -18,7 +14,7 @@ const userSchema = mongoose.Schema({
     firstName: { type: String, require: true },
     lastName: { type: String, require: true },
     schedule: [[bloc]],
-    friends: [friend],
+    friends: [String],
     pendingReciveFriend: [String],
     pendingSendFriend: [String]
 }, {
