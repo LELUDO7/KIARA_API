@@ -7,7 +7,7 @@ class UserRepository {
     addFriendRequest(idUser, idfriend) {
         const idUserQ = { "idUser": idUser };
         const  idfriendQ= { "idUser": idfriend };
-        const result = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
+        var result = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
         result = User.findOneAndUpdate(idfriendQ, { $addToSet: {"pendingReciveFriend":[idUser]} });
         return result;
     }
