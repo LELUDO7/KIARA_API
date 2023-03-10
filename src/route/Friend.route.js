@@ -24,11 +24,14 @@ class FriendRoute {
         try {
             let result1 = await UserRepository.addFriendSendRequest(req.params.idUser, req.query.friendid);
             let result2 = await UserRepository.addFriendReciveRequest(req.query.friendid, req.params.idUser);
-            if (result1 === null || result2 === null) {
-                return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
+            if (result1 === null) {
+                return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
+            }
+            else if (result2 === null) {
+                return next(HttpError.NotFound(`The user ${req.query.friendid} dosent exist`));
             }
             else {
-                res.status(200).json("Resquet add");
+                res.status(200).json("friend resquet add");
             }
         } catch (err) {
             return next(err)
@@ -49,13 +52,13 @@ class FriendRoute {
             let result1 = await UserRepository.removeFriendSendRequest(req.params.idUser, req.query.friendid);
             let result2 = await UserRepository.removeFriendReciveRequest(req.params.idUser, req.query.friendid);
             if (result1 === null) {
-                return next(HttpError.NotFound(`The user ${req.params.idUser} have no friend request send to user ${req.query.friendid}`));
+                return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
             }
             else if (result2 === null) {
-                return next(HttpError.NotFound(`The user ${req.query.friendid} have no friend resquest from user ${req.params.idUser}`));
+                return next(HttpError.NotFound(`The user ${req.query.friendid} dosent exist`));
             }
             else {
-                res.status(200).json(`Resquet remove ${result1} ${result2}`);
+                res.status(200).json(`Friend resquet remove`);
             }
         } catch (err) {
             return next(err)
