@@ -9,7 +9,7 @@ class UserRepository {
         const idfriendQ= { "idUser": idfriend };
         const result1 = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
         const result2 = User.findOneAndUpdate(idfriendQ, { $addToSet: {"pendingReciveFriend":[idUser]} });
-        return result1;
+        return result1 + result2;
     }
 
     removeFriendRequest(idUser, body) {
