@@ -34,6 +34,12 @@ class UserRepository {
         return result
     }
 
+    removeFriend(idUser, idfriend) {
+        const query = { "idUser": idUser };
+        const result = User.findOneAndUpdate(query, { $pullAll: { "friends": [idfriend] } });
+        return result
+    }
+
     updateUserById(idUser, body) {
         const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, body);

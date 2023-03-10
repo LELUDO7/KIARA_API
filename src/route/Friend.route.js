@@ -33,7 +33,7 @@ class FriendRoute {
                 return next(HttpError.NotFound(`The user ${req.query.friendid} dosent exist`));
             }
             else {
-                res.status(200).json(`Friend resquet remove`);
+                res.status(200).json(`Friend added`);
             }
         } catch (err) {
             return next(err)
@@ -41,7 +41,22 @@ class FriendRoute {
     }
     
     async removeFriend(req, res, next) {
-        
+
+        try {
+            let result1 = await UserRepository.removeFriend(req.params.idUser, req.query.friendid);
+            let result2 = await UserRepository.removeFriend(req.query.friendid, req.params.idUser);
+            if (result1 === null) {
+                return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
+            }
+            else if (result2 === null) {
+                return next(HttpError.NotFound(`The user ${req.query.friendid} dosent exist`));
+            }
+            else {
+                res.status(200).json(`Friend removed`);
+            }
+        } catch (err) {
+            return next(err)
+        }
     }
 
 }
