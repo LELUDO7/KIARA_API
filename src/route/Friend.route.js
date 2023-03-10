@@ -7,38 +7,11 @@ const router = express.Router();
 class FriendRoute {
 
     constructor() {
-        router.patch('/:idUser', this.addRequest)
-        router.delete('/:idUser', this.removeRequest)
+        router.patch('/:idUser', this.addFriend)
+        router.delete('/:idUser', this.removeFriend)
     }
 
-    async addRequest(req, res, next) {
-        var ok = false
-        if (req.query.friendid != null) {
-            ok = true
-        }
-
-        if (!ok) {
-            return next(HttpError.NotFound(`no friend id`));
-        }
-
-        try {
-            let result1 = await UserRepository.addFriendSendRequest(req.params.idUser, req.query.friendid);
-            let result2 = await UserRepository.addFriendReciveRequest(req.query.friendid, req.params.idUser);
-            if (result1 === null) {
-                return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
-            }
-            else if (result2 === null) {
-                return next(HttpError.NotFound(`The user ${req.query.friendid} dosent exist`));
-            }
-            else {
-                res.status(200).json("friend resquet add");
-            }
-        } catch (err) {
-            return next(err)
-        }
-    }
-
-    async removeRequest(req, res, next) {
+    async addFriend(req, res, next) {
         var ok = false
         if (req.query.friendid != null) {
             ok = true
@@ -51,6 +24,8 @@ class FriendRoute {
         try {
             let result1 = await UserRepository.removeFriendSendRequest(req.params.idUser, req.query.friendid);
             let result2 = await UserRepository.removeFriendReciveRequest(req.params.idUser, req.query.friendid);
+            await UserRepository.addFriend(req.params.idUser, req.query.friendid);
+            await UserRepository.addFriend(req.query.friendid, req.params.idUser);
             if (result1 === null) {
                 return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
             }
@@ -63,6 +38,10 @@ class FriendRoute {
         } catch (err) {
             return next(err)
         }
+    }
+    
+    async removeFriend(req, res, next) {
+        
     }
 
 }

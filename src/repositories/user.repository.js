@@ -28,6 +28,12 @@ class UserRepository {
         return result;
     }
 
+    addFriend(idUser, idfriend) {
+        const query = { "idUser": idUser };
+        const result = User.findOneAndUpdate(query, { $addToSet: { "friends": [idfriend] } });
+        return result
+    }
+
     updateUserById(idUser, body) {
         const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, body);
