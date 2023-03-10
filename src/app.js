@@ -4,6 +4,7 @@ import userRoute from './route/User.route.js'
 import userInfoRoute from './route/UserInfo.route.js'
 import APIStatusRoute from './route/APIStatus.js'
 import friendRequestRoute from './route/FriendRequest.route.js'
+import friendRoute from './route/Friend.route.js'
 
 database();
 
