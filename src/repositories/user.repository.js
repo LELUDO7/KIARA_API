@@ -4,9 +4,15 @@ import User from '../models/user.model.js';
 
 class UserRepository {
 
-    addReceiveFriendRequest(idUser, body) {
+    addFriendRequest(idUser, body) {
         const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, { $addToSet: body });
+        return result;
+    }
+
+    removeFriendRequest(idUser, body) {
+        const query = { "idUser": idUser };
+        const result = User.findOneAndDelete(query, { $addToSet: body });
         return result;
     }
 
