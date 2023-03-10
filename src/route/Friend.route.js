@@ -12,13 +12,22 @@ class FriendRoute {
     }
 
     async addRequest(req, res, next) {
+        var ok = false
+        if (req.query.friendid != null) {
+            ok = true
+        }
+
+        if (!ok) {
+            return next(HttpError.NotFound(`no friend id`));
+        }
+
         try {
-            let result = await UserRepository.addFriendRequest(req.params.idUser, req.body);
+            let result = await UserRepository.addFriendRequest(req.params.idUser, req.query.friendid);
             if (result === null) {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
-                res.status(200).json("Resquet Add");
+                res.status(200).json("Resquet remove");
             }
         } catch (err) {
             return next(err)

@@ -4,9 +4,11 @@ import User from '../models/user.model.js';
 
 class UserRepository {
 
-    addFriendRequest(idUser, body) {
-        const query = { "idUser": idUser };
-        const result = User.findOneAndUpdate(query, { $addToSet: body });
+    addFriendRequest(idUser, idfriend) {
+        const idUserQ = { "idUser": idUser };
+        const  idfriendQ= { "idUser": idfriend };
+        const result = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
+        result = User.findOneAndUpdate(idfriendQ, { $addToSet: {"pendingReciveFriend":[idUser]} });
         return result;
     }
 
