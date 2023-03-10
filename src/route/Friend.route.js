@@ -36,13 +36,23 @@ class FriendRoute {
     }
 
     async removeRequest(req, res, next) {
+        var ok = false
+        if (req.query.friendid != null) {
+            ok = true
+        }
+
+        if (!ok) {
+            return next(HttpError.NotFound(`no friend id`));
+        }
+
         try {
-            let result = await UserRepository.removeFriendRequest(req.params.idUser, req.body);
-            if (result === null) {
+            let result1 = await UserRepository.removeFriendReciveRequest(req.params.idUser, req.query.friendid);
+            let result2 = await UserRepository.removeFriendReciveRequest(req.query.friendid, req.params.idUser);
+            if (result1 === null || result2 === null) {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
-                res.status(200).json("Resquet remove");
+                res.status(200).json("Resquet add");
             }
         } catch (err) {
             return next(err)
