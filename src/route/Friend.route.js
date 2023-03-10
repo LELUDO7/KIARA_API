@@ -55,7 +55,7 @@ class FriendRoute {
                 return next(HttpError.NotFound(`The user ${req.query.friendid} have no friend resquest from user ${req.params.idUser}`));
             }
             else {
-                res.status(200).json("Resquet remove");
+                res.status(200).json(`Resquet remove ${result1} ${result2}`);
             }
         } catch (err) {
             return next(err)
