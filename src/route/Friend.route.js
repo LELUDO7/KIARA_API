@@ -27,7 +27,7 @@ class FriendRoute {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
-                res.status(200).json("Resquet remove");
+                res.status(200).json("Resquet add");
             }
         } catch (err) {
             return next(err)
@@ -41,7 +41,7 @@ class FriendRoute {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {
-                res.status(200).json("Resquet Add");
+                res.status(200).json("Resquet remove");
             }
         } catch (err) {
             return next(err)
