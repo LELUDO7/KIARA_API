@@ -22,7 +22,7 @@ class UserRepository {
         return result;
     }
 
-    removeFriendReciveRequest(idUser, body) {
+    removeFriendReciveRequest(idUser, idfriend) {
         const query = { "idUser": idUser };
         const result = User.findOneAndUpdate(query, { $pullAll: {"pendingReciveFriend":[idfriend]} } )
         return result;
