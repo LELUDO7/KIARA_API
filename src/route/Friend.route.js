@@ -22,8 +22,9 @@ class FriendRoute {
         }
 
         try {
-            let result = await UserRepository.addFriendRequest(req.params.idUser, req.query.friendid);
-            if (result === null) {
+            let result1 = await UserRepository.addFriendSendRequest(req.params.idUser, req.query.friendid);
+            let result2 = await UserRepository.addFriendReciveRequest(req.query.friendid, req.params.idUser);
+            if (result1 === null || result2 === null) {
                 return next(HttpError.NotFound(`User ${req.params.idUser} dosen't exist`));
             }
             else {

@@ -4,12 +4,16 @@ import User from '../models/user.model.js';
 
 class UserRepository {
 
-    addFriendRequest(idUser, idfriend) {
+    addFriendSendRequest(idUser, idfriend) {
         const idUserQ = { "idUser": idUser };
-        const idfriendQ= { "idUser": idfriend };
-        const result1 = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
-        const result2 = User.findOneAndUpdate(idfriendQ, { $addToSet: {"pendingReciveFriend":[idUser]} });
-        return result1 + result2;
+        const result = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingSendFriend":[idfriend]} });
+        return result;
+    }
+
+    addFriendReciveRequest(idUser, idfriend) {
+        const idUserQ = { "idUser": idUser };
+        const result = User.findOneAndUpdate(idUserQ, { $addToSet: {"pendingReciveFriend":[idfriend]} });
+        return result;
     }
 
     removeFriendRequest(idUser, body) {
