@@ -50,7 +50,7 @@ class FriendRequestRoute {
 
         try {
             let result1 = await UserRepository.removeFriendSendRequest(req.params.idUser, req.query.friendid);
-            let result2 = await UserRepository.removeFriendReciveRequest(req.params.idUser, req.query.friendid);
+            let result2 = await UserRepository.removeFriendReciveRequest(req.query.friendid, req.params.idUser);
             if (result1 === null) {
                 return next(HttpError.NotFound(`The user ${req.params.idUser} dosent exist`));
             }
