@@ -22,7 +22,7 @@ class FriendRoute {
         }
 
         try {
-            let result1 = await UserRepository.removeFriendSendRequest(req.params.idUser, req.query.friendid);
+            let result1 = await UserRepository.removeFriendSendRequest(req.query.friendid, req.params.idUser);
             let result2 = await UserRepository.removeFriendReciveRequest(req.params.idUser, req.query.friendid);
             await UserRepository.addFriend(req.params.idUser, req.query.friendid);
             await UserRepository.addFriend(req.query.friendid, req.params.idUser);
